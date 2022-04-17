@@ -1,6 +1,6 @@
-package main.java.trigonometry;
+package trigonometry;
 
-import main.java.useful.FunctionInterface;
+import useful.FunctionInterface;
 
 public class MyCot implements FunctionInterface {
     private double epsilon;

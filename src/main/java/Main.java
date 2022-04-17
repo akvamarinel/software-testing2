@@ -1,7 +1,4 @@
-import main.java.MySystem;
-import main.java.logarithm.MyLn;
-import main.java.trigonometry.MyCot;
-import main.java.trigonometry.MySin;
+import logarithm.MyLn;
 
 import java.io.IOException;
 

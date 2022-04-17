@@ -1,4 +1,4 @@
-package main.java.useful;
+package useful;
 
 public interface FunctionInterface {
     double calc(double value);

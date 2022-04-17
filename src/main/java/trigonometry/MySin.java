@@ -1,7 +1,7 @@
-package main.java.trigonometry;
+package trigonometry;
 
-import main.java.useful.FunctionInterface;
-import main.java.useful.UsefulMethods;
+import useful.FunctionInterface;
+import useful.UsefulMethods;
 
 public class MySin implements FunctionInterface {
     private double epsilon;

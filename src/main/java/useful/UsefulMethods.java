@@ -1,4 +1,4 @@
-package main.java.useful;
+package useful;
 
 public class UsefulMethods {
     public static int fact(int x) {

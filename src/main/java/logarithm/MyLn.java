@@ -1,6 +1,6 @@
-package main.java.logarithm;
+package logarithm;
 
-import main.java.useful.FunctionInterface;
+import useful.FunctionInterface;
 
 public class MyLn implements FunctionInterface {
     private double epsilon;
@@ -14,12 +14,11 @@ public class MyLn implements FunctionInterface {
 
     @Override
     public double calc(double value){
-        //System.out.println(value);
-        if (value < 0){
+        if (value <= 0){
             return Double.NaN;
         }
-        if(value == 0){
-            return Double.NEGATIVE_INFINITY;
+        if (value == Double.POSITIVE_INFINITY){
+            return Double.POSITIVE_INFINITY;
         }
         if(value > 2){
             return calc(value/2.0) + calc(2.0);

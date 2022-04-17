@@ -1,13 +1,13 @@
-package main.java.logarithm;
+package logarithm;
 
-import main.java.useful.FunctionInterface;
+import useful.FunctionInterface;
 
 public class MyLog implements FunctionInterface {
-    private int base;
+    private double base;
     private double epsilon;
     static private MyLn myLn;
 
-    public MyLog(double epsilon, int base, MyLn myLn){
+    public MyLog(double epsilon, double base, MyLn myLn){
         if(base <= 0 || base == 1){
             throw new IllegalArgumentException("base must be more than zero and not one: " + base);
         }
@@ -17,6 +17,12 @@ public class MyLog implements FunctionInterface {
     }
 
     public double calc(double value){
+        if (value <= 0){
+            return Double.NaN;
+        }
+        if (value == Double.POSITIVE_INFINITY){
+            return Double.POSITIVE_INFINITY;
+        }
         double tmp1 =  myLn.calc(value);
         double tmp2 = myLn.calc(this.base);
         return tmp1/tmp2;
@@ -26,7 +32,7 @@ public class MyLog implements FunctionInterface {
         this.base = base;
     }
 
-    public int getBase(){
+    public double getBase(){
         return this.base;
     }
 

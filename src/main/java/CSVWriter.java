@@ -1,4 +1,4 @@
-import main.java.useful.FunctionInterface;
+import useful.FunctionInterface;
 
 import java.io.FileWriter;
 import java.io.IOException;
