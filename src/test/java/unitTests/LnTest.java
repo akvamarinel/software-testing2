@@ -43,4 +43,10 @@ public class LnTest {
         assertEquals(tmp, Double.POSITIVE_INFINITY);
     }
 
+    @ParameterizedTest
+    @ValueSource(doubles = {Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, Double.NaN, -2, -5, 0})
+    public void setEpsilonReturnsException(double arg){
+        assertThrows(IllegalArgumentException.class, () -> {myLn.setEpsilon(arg);});
+    }
+
 }

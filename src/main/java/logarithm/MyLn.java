@@ -36,6 +36,9 @@ public class MyLn implements FunctionInterface {
 
     @Override
     public void setEpsilon(double epsilon) {
+        if (epsilon <= 0 || epsilon == Double.NEGATIVE_INFINITY || epsilon == Double.POSITIVE_INFINITY || Double.isNaN(epsilon)) {
+            throw new IllegalArgumentException("epsilon must be more than zero: " + epsilon);
+        }
         this.epsilon = epsilon;
     }
 }

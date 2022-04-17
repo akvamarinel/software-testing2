@@ -1,12 +1,13 @@
 import logarithm.MyLn;
+import trigonometry.MySin;
 
 import java.io.IOException;
 
 public class Main {
     public static void main(String [] args) throws IOException {
-        MyLn myLn = new MyLn(0.0001);
-        MySystem mySystem = new MySystem(0.001);
-        System.out.println(mySystem.calc(5));
+        MySin mySin = new MySin(0.001);
+        double tmp = mySin.calc(4.134);
+        System.out.println(tmp);
 
         //System.out.println(myLn.calc(5));
         //System.out.println(Math.log(5));
