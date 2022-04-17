@@ -1,7 +1,9 @@
-package trigonometry;
+package org.itmo.masha.trigonometry;
 
-import useful.FunctionInterface;
-import useful.UsefulMethods;
+import org.itmo.masha.useful.FunctionInterface;
+import org.itmo.masha.useful.UsefulMethods;
+
+import static java.lang.StrictMath.PI;
 
 public class MySin implements FunctionInterface {
     private double epsilon;
@@ -21,15 +23,31 @@ public class MySin implements FunctionInterface {
         this.epsilon = epsilon;
     }
 
+    private double shortenRange(double x) {
+        if (x > PI || x < -PI) {
+            double k = x % (2 * PI);
+            if (k < -PI) {
+                return k + 2 * PI;
+            }
+            if (k > PI) {
+                return k - 2 * PI;
+            }
+            return k;
+        } else {
+            return x;
+        }
+    }
     @Override
     public double calc(double value) {
+
         if(value == Double.POSITIVE_INFINITY || value == Double.NEGATIVE_INFINITY || Double.isNaN(value)) {
             return Double.NaN;
         } else {
+            value = shortenRange(value);
             double result = Double.MAX_VALUE;
             int n = 1;
             double nextResult = 0;
-            while (Math.abs(result - nextResult) > epsilon) {
+            while (Math.abs(result - nextResult) >= epsilon) {
                 result = nextResult;
                 nextResult += (Math.pow(-1, n - 1) * Math.pow(value, 2 * n - 1)) / UsefulMethods.fact(2 * n - 1);
                 n++;

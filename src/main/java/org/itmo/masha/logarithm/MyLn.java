@@ -1,6 +1,6 @@
-package logarithm;
+package org.itmo.masha.logarithm;
 
-import useful.FunctionInterface;
+import org.itmo.masha.useful.FunctionInterface;
 
 public class MyLn implements FunctionInterface {
     private double epsilon;

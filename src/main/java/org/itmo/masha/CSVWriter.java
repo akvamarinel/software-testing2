@@ -1,4 +1,6 @@
-import useful.FunctionInterface;
+package org.itmo.masha;
+
+import org.itmo.masha.useful.FunctionInterface;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,6 +13,7 @@ public class CSVWriter {
             double tmpStep = step;
             for (int j = 0; j < 10; j++){
                 fileWriter.write(Double.toString(functions.get(i).calc(tmpStep)) + ' ' + " Результат модуля: " + functions.get(i).getClass() + "\n");
+                fileWriter.flush();
                 tmpStep+=step;
             }
         }

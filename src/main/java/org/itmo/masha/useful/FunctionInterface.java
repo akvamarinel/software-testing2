@@ -1,4 +1,4 @@
-package useful;
+package org.itmo.masha.useful;
 
 public interface FunctionInterface {
     double calc(double value);

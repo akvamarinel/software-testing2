@@ -1,6 +1,6 @@
-package trigonometry;
+package org.itmo.masha.trigonometry;
 
-import useful.FunctionInterface;
+import org.itmo.masha.useful.FunctionInterface;
 
 public class MyCos implements FunctionInterface {
     private double epsilon;
@@ -13,7 +13,7 @@ public class MyCos implements FunctionInterface {
 
     @Override
     public double calc(double value) {
-        return Math.sqrt(1 - Math.pow(mySin.calc(value),2));
+        return mySin.calc(Math.PI/2 + value);
     }
 
     @Override

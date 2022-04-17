@@ -1,6 +1,6 @@
-package trigonometry;
+package org.itmo.masha.trigonometry;
 
-import useful.FunctionInterface;
+import org.itmo.masha.useful.FunctionInterface;
 
 public class MyCot implements FunctionInterface {
     private double epsilon;

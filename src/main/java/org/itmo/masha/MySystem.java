@@ -1,8 +1,8 @@
+package org.itmo.masha;
 
-
-import logarithm.*;
-import trigonometry.*;
-import useful.*;
+import org.itmo.masha.logarithm.*;
+import org.itmo.masha.trigonometry.*;
+import org.itmo.masha.useful.*;
 
 public class MySystem implements FunctionInterface {
     private double epsilon;
@@ -16,16 +16,16 @@ public class MySystem implements FunctionInterface {
     private MyLn myLn;
 
 
-    public MySystem(double epsilon) {
+    public MySystem(double epsilon, MyLn myLn, MySin mySin, MyCos myCos, MyCot myCot, MyLog myLog2, MyLog myLog3, MyLog myLog5, MyLog myLog10) {
         this.epsilon = epsilon;
-        myLn = new MyLn(epsilon);
-        mySin = new MySin(epsilon);
-        myCos = new MyCos(epsilon, mySin);
-        myCot = new MyCot(epsilon, mySin);
-        myLog2 = new MyLog(epsilon, 2, myLn);
-        myLog3 = new MyLog(epsilon, 3, myLn);
-        myLog5 = new MyLog(epsilon, 5, myLn);
-        myLog10 = new MyLog(epsilon, 10, myLn);
+        this.myLn = new MyLn(epsilon);
+        this.mySin = new MySin(epsilon);
+        this.myCos = new MyCos(epsilon, mySin);
+        this.myCot = new MyCot(epsilon, mySin);
+        this.myLog2 = new MyLog(epsilon, 2, myLn);
+        this.myLog3 = new MyLog(epsilon, 3, myLn);
+        this.myLog5 = new MyLog(epsilon, 5, myLn);
+        this.myLog10 = new MyLog(epsilon, 10, myLn);
     }
 
     @Override

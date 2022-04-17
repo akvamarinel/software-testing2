@@ -1,11 +1,11 @@
-package logarithm;
+package org.itmo.masha.logarithm;
 
-import useful.FunctionInterface;
+import org.itmo.masha.useful.FunctionInterface;
 
 public class MyLog implements FunctionInterface {
     private double base;
     private double epsilon;
-    static private MyLn myLn;
+    private MyLn myLn;
 
     public MyLog(double epsilon, double base, MyLn myLn){
         if(base <= 0 || base == 1){

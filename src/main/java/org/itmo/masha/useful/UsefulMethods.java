@@ -1,4 +1,4 @@
-package useful;
+package org.itmo.masha.useful;
 
 public class UsefulMethods {
     public static int fact(int x) {
