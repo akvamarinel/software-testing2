@@ -33,25 +33,34 @@ public class MySystem implements FunctionInterface {
         this.epsilon = epsilon;
     }
 
+    public double firstEquationCalc(double value){
+        return myCot.calc(value) * myCos.calc(value);
+    }
+
+    public double secondEquationCalc(double value){
+        double first = ((myLog5.calc(value) + myLog3.calc(value)) / (myLog10.calc(value))) - myLn.calc(value);
+        double second = Math.pow((myLog3.calc(value) / myLn.calc(value)), 2);
+        double tmpFisrt = first + second;
+        double fourth = (myLn.calc(value) / myLog10.calc(value));
+        double fifth = (Math.pow(myLog5.calc(value), 3)) * Math.pow(myLog2.calc(value), 2) / (myLog5.calc(value) + myLn.calc(value));
+        double tmpSecond = fourth + fifth;
+        double res = tmpFisrt * tmpSecond;
+        return res;
+    }
+
     @Override
     public double calc(double value) {
         if (value <= 0) {
-            return myCot.calc(value) * myCos.calc(value);
+            return firstEquationCalc(value);
         } else {
             if (value == 1) {
                 throw new IllegalArgumentException("the denominator must not be zero");
             } else {
-                double first = ((myLog5.calc(value) + myLog3.calc(value)) / (myLog10.calc(value))) - myLn.calc(value);
-                double second = Math.pow((myLog3.calc(value) / myLn.calc(value)), 2);
-                double tmpFisrt = first + second;
-                double fourth = (myLn.calc(value) / myLog10.calc(value));
-                double fifth = (Math.pow(myLog5.calc(value), 3)) * Math.pow(myLog2.calc(value), 2) / (myLog5.calc(value) + myLn.calc(value));
-                double tmpSecond = fourth + fifth;
-                double res = tmpFisrt * tmpSecond;
+                return secondEquationCalc(value);
 //            double firstPart = (((myLog5.calc(value) + myLog3.calc(value))/myLog10.calc(value)) - myLn.calc(value) + (Math.pow(myLog3.calc(value)/myLn.calc(value), 2)));
 //            double secondPart = ((myLn.calc(value)/myLog10.calc(value)) + (myLog5.calc(Math.pow(value, 3)) * (myLog2.calc(Math.pow(value, 2))/(myLog5.calc(value) + myLn.calc(value)))));
 //            double result = firstPart * secondPart;
-                return res;
+
             }
         }
     }

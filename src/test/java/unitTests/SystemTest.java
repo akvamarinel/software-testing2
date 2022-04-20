@@ -72,6 +72,4 @@ public class SystemTest {
         double tmp = mySystem.calc(0);
         assertEquals(tmp, Double.NaN);
     }
-
-//fixme: nan, infinity
 }

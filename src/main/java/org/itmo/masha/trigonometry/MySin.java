@@ -23,16 +23,16 @@ public class MySin implements FunctionInterface {
         this.epsilon = epsilon;
     }
 
-    private double shortenRange(double x) {
-        if (x > PI || x < -PI) {
-            double k = x % (2 * PI);
-            if (k < -PI) {
-                return k + 2 * PI;
+    private double shorted(double x) {
+        if (x > Math.PI || x < -Math.PI) {
+            double tmp = x % (2 * Math.PI);
+            if (tmp < -Math.PI) {
+                return tmp + 2 * Math.PI;
             }
-            if (k > PI) {
-                return k - 2 * PI;
+            if (tmp > Math.PI) {
+                return tmp - 2 * Math.PI;
             }
-            return k;
+            return tmp;
         } else {
             return x;
         }
@@ -43,7 +43,7 @@ public class MySin implements FunctionInterface {
         if(value == Double.POSITIVE_INFINITY || value == Double.NEGATIVE_INFINITY || Double.isNaN(value)) {
             return Double.NaN;
         } else {
-            value = shortenRange(value);
+            value = shorted(value);
             double result = Double.MAX_VALUE;
             int n = 1;
             double nextResult = 0;

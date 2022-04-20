@@ -17,5 +17,6 @@ public class CSVWriter {
                 tmpStep+=step;
             }
         }
+        fileWriter.close();
     }
 }
