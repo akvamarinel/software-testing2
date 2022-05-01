@@ -12,13 +12,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CosTest {
     private static final double DELTA = 1.0e-3;
+    private static final double EPSILON = 0.001;
     private MyCos myCos;
     private MySin mySin;
 
     @BeforeEach
     public void setUp(){
-        mySin = new MySin(0.001);
-        myCos = new MyCos(0.001, mySin);
+        mySin = new MySin(EPSILON);
+        myCos = new MyCos(EPSILON, mySin);
     }
 
     @ParameterizedTest

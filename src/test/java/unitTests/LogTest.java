@@ -15,10 +15,11 @@ public class LogTest {
     private MyLog myLog;
     private MyLn myLn;
     private final static double DELTA = 1.0e-2;
+    private static final double EPSILON = 0.001;
 
     @BeforeEach
     public void setUp(){
-        myLn = new MyLn(0.001);
+        myLn = new MyLn(EPSILON);
     }
 
     @ParameterizedTest

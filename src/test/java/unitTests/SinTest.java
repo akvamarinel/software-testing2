@@ -13,10 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class SinTest {
     private MySin mySin;
     private static final double DELTA = 1.0e-4;
+    private static final double EPSILON = 0.001;
 
     @BeforeEach
     public void setUp() {
-        mySin = new MySin(0.001);
+        mySin = new MySin(EPSILON);
     }
 
 

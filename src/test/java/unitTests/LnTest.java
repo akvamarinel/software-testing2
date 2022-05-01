@@ -13,10 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class LnTest {
     private MyLn myLn;
     private static final double DELTA = 1.0e-3;
+    private static final double EPSILON = 0.0001;
 
     @BeforeEach
     public void setUp(){
-        myLn = new MyLn(0.0001);
+        myLn = new MyLn(EPSILON);
     }
 
     @ParameterizedTest

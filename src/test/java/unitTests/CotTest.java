@@ -12,13 +12,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CotTest {
     private static final double DELTA = 1.0e-3;
+    private static final double EPSILON = 0.001;
     private MyCot myCot;
     private MySin mySin;
 
     @BeforeEach
     public void setUp() {
-        mySin = new MySin(0.01);
-        myCot = new MyCot(0.01, mySin);
+        mySin = new MySin(EPSILON);
+        myCot = new MyCot(EPSILON, mySin);
     }
 
     @Test
