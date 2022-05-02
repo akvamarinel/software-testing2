@@ -68,6 +68,7 @@ public class LogTest {
     @ParameterizedTest
     @ValueSource(doubles = {Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, Double.NaN, -2, -5, 0})
     public void setEpsilonReturnsException(double arg){
+        myLog = new MyLog(0.001, 3, myLn);
         assertThrows(IllegalArgumentException.class, () -> {myLog.setEpsilon(arg);});
     }
 

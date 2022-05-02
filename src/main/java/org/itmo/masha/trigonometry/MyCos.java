@@ -22,6 +22,7 @@ public class MyCos implements FunctionInterface {
             throw new IllegalArgumentException("epsilon must be more than zero: " + epsilon);
         }
         this.epsilon = epsilon;
+        mySin.setEpsilon(epsilon);
     }
 
     public double getEpsilon(){

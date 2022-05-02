@@ -22,7 +22,9 @@ public class Main {
          MyLog myLog3 = new MyLog(EPSILON, 3, myLn);
          MyLog myLog5 = new MyLog(EPSILON, 5, myLn);
          MyLog myLog10 = new MyLog(EPSILON, 10, myLn);
-         MySystem mySystem = new MySystem(EPSILON, myLn, mySin, myCos, myCot, myLog2, myLog3, myLog5, myLog10);
+         FirstPart firstPart = new FirstPart(myCos, myCot);
+         SecondPart secondPart = new SecondPart(myLn, myLog2, myLog3, myLog5, myLog10);
+         MySystem mySystem = new MySystem(firstPart, secondPart);
          List <FunctionInterface> list = new ArrayList<>();
          list.add(mySystem);
          list.add(myLog2);

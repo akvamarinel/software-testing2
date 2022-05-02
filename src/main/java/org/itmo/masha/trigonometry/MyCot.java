@@ -19,6 +19,7 @@ public class MyCot implements FunctionInterface {
             throw new IllegalArgumentException("epsilon must be more than zero: " + epsilon);
         }
         this.epsilon = epsilon;
+        mySin.setEpsilon(epsilon);
     }
 
     @Override

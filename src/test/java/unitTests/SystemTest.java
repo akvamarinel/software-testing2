@@ -1,6 +1,8 @@
 package unitTests;
 
+import org.itmo.masha.FirstPart;
 import org.itmo.masha.MySystem;
+import org.itmo.masha.SecondPart;
 import org.itmo.masha.logarithm.MyLn;
 import org.itmo.masha.logarithm.MyLog;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,6 +26,8 @@ public class SystemTest {
     private MyLog myLog5;
     private MyLog myLog10;
     private MyLn myLn;
+    private FirstPart firstPart;
+    private SecondPart secondPart;
     private final static double EPSILON = 0.001;
     private static final double DELTA = 1.0e-3;
 
@@ -37,14 +41,16 @@ public class SystemTest {
         myLog3 = new MyLog(EPSILON, 3, myLn);
         myLog5 = new MyLog(EPSILON, 5, myLn);
         myLog10 = new MyLog(EPSILON, 10, myLn);
-        mySystem = new MySystem(0.01, myLn, mySin, myCos, myCot, myLog2, myLog3, myLog5, myLog10);
+        firstPart = new FirstPart(myCos, myCot);
+        secondPart = new SecondPart(myLn, myLog2, myLog3, myLog5, myLog10);
+        mySystem = new MySystem(firstPart, secondPart);
     }
 
     @ParameterizedTest
     @CsvSource(value = {
-            "2, 8.6720",
-            "6, 14.1787",
-            "9, 20.5445"
+            "2, 8.6898",
+            "6, 14.0400",
+            "9, 20.4393"
     })
     public void mySystemReturnsRightValueWhenMoreThanZero(double arg, double ans){
         double tmp = mySystem.calc(arg);
