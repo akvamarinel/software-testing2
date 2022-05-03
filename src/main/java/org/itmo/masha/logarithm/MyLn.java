@@ -6,6 +6,9 @@ public class MyLn implements FunctionInterface {
     private double epsilon;
 
     public MyLn(double epsilon){
+        if (epsilon <= 0 || epsilon == Double.NEGATIVE_INFINITY || epsilon == Double.POSITIVE_INFINITY || Double.isNaN(epsilon)) {
+            throw new IllegalArgumentException("epsilon must be more than zero: " + epsilon);
+        }
         this.epsilon = epsilon;
     }
     public double getEpsilon(){

@@ -38,5 +38,4 @@ public class SecondPart{
         myLog5.setEpsilon(epsilon);
         myLog10.setEpsilon(epsilon);
     }
-
 }

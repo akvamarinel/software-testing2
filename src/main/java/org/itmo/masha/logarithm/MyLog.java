@@ -8,6 +8,9 @@ public class MyLog implements FunctionInterface {
     private MyLn myLn;
 
     public MyLog(double epsilon, double base, MyLn myLn){
+        if (epsilon <= 0 || epsilon == Double.NEGATIVE_INFINITY || epsilon == Double.POSITIVE_INFINITY || Double.isNaN(epsilon)) {
+            throw new IllegalArgumentException("epsilon must be more than zero: " + epsilon);
+        }
         if(base <= 0 || base == 1 || Double.isNaN(base) || base == Double.POSITIVE_INFINITY || base == Double.NEGATIVE_INFINITY){
             throw new IllegalArgumentException("base must be more than zero and not one: " + base);
         }
@@ -29,6 +32,9 @@ public class MyLog implements FunctionInterface {
     }
 
     public void setBase(int base){
+        if(base <= 0 || base == 1 || Double.isNaN(base) || base == Double.POSITIVE_INFINITY || base == Double.NEGATIVE_INFINITY){
+            throw new IllegalArgumentException("base must be more than zero and not one: " + base);
+        }
         this.base = base;
     }
 
