@@ -37,5 +37,6 @@ public class Main {
          list.add(myLn);
          CSVWriter writer = new CSVWriter();
          writer.write(list, 0.01);
+         
     }
 }
